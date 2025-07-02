@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Biểu đồ Nhiệt độ ESP32</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+  </head>
+  <body>
+    <h2>Nhiệt độ từ ESP32 (gửi qua Internet)</h2>
+    <div id="chart" style="height: 400px;"></div>
+
+    <script>
+      function fetchData() {
+        fetch('https://your-project.vercel.app/api/temp')
+          .then(res => res.json())
+          .then(json => {
+            Highcharts.chart('chart', {
+              chart: { type: 'line' },
+              title: { text: 'Biểu đồ nhiệt độ' },
+              xAxis: { categories: json.labels },
+              yAxis: {
+                title: { text: 'Nhiệt độ (°C)' }
+              },
+              series: [{
+                name: 'ESP32',
+                data: json.data
+              }]
+            });
+          });
+      }
+
+      fetchData();
+      setInterval(fetchData, 10000); // cập nhật mỗi 10 giây
+    </script>
+  </body>
+</html>
