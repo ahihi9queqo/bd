@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Biểu đồ Nhiệt độ ESP32</title>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://bd-nxwpdv6rs-cong-kos-projects-e603e9e2.vercel.app>
   </head>
   <body>
     <h2>Nhiệt độ từ ESP32 (gửi qua Internet)</h2>
